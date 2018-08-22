@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/order_bt_call"
+            android:foreground="?attr/selectableItemBackground"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:padding="10dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/ic_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:text="Lead ID:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/title_card"/>
+
+            <TextView
+                android:text="Trading Name:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/title_card"/>
+
+            <TextView
+                android:text="Contact Person:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/title_card"/>
+
+            <TextView
+                android:text="Contact number:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/title_card"/>
+
+            <TextView
+                android:text="Address:"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/title_card"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/lead_id"
+                android:text="1342"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/desc_card"/>
+
+            <TextView
+                android:id="@+id/trading_name"
+                android:text="Narmware Software Solutions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/desc_card"/>
+
+            <TextView
+                android:id="@+id/contact_name"
+                android:text="Rohit Ram Savant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/desc_card"/>
+
+            <TextView
+                android:id="@+id/contact_number"
+                android:text="8805250944"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/desc_card"/>
+
+            <TextView
+                android:id="@+id/address"
+                android:text="orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/desc_card"/>
+
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="right"
+                android:gravity="right">
+
+
+                <Button
+                    android:id="@+id/lead_bt_more"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View Lead Details"
+                    android:textAllCaps="false"
+                    android:textColor="@color/colorAccent"
+                    android:fontFamily="sans-serif-condensed"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
