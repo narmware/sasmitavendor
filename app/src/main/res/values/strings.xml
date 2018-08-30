@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Samista</string>
+    <string name="app_name">Sasmita Business Solutions </string>
     <string name="tab_text_1">Active Leads</string>
     <string name="tab_text_2">Closed Leads</string>
     <string name="action_settings">Settings</string>
@@ -7,4 +7,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_detailed_lead">Lead Details</string>
+    <string name="no_internet">No internet connections found \n Check your connection or Try again</string>
+    <string name="title_activity_main">MainActivity</string>
+
 </resources>
+

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.narmware.samista.activity.DetailedLeadActivity"
+    tools:showIn="@layout/activity_detailed_lead"
+    android:padding="5dp">
+
+    <ScrollView
+        android:layout_above="@+id/lead_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:text="Lead ID:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/title_card"/>
+
+                        <TextView
+                            android:text="Trading Name:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/title_card"/>
+
+                        <TextView
+                            android:text="Contact Person:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/title_card"/>
+
+                        <TextView
+                            android:text="Contact number:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/title_card"/>
+
+                        <TextView
+                            android:text="Pincode:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/title_card"/>
+
+
+                        <TextView
+                            android:text="Address:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/title_card"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <TextView
+                            android:id="@+id/detail_tv_lead_id"
+                            android:text="1342"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/desc_card"/>
+
+                        <TextView
+                            android:id="@+id/detail_tv_trading"
+                            android:text="Narmware Software Solutions"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/desc_card"/>
+
+                        <TextView
+                            android:id="@+id/detail_tv_person"
+                            android:text="Rohit Ram Savant"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/desc_card"/>
+
+                        <TextView
+                            android:id="@+id/detail_tv_contact"
+                            android:text="8805250944"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/desc_card"/>
+
+                        <TextView
+                            android:id="@+id/detail_tv_pincode"
+                            android:text="411015"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/desc_card"/>
+
+                        <TextView
+                            android:id="@+id/detail_tv_address"
+                            android:text="orem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/desc_card"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardUseCompatPadding="true"
+            android:layout_marginTop="5dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:text="Business Nature:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/title_card"/>
+
+                        <TextView
+                            android:text="Loan Type:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/title_card"/>
+
+                        <TextView
+                            android:text="Business Since:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/title_card"/>
+
+                        <TextView
+                            android:text="Channel Partner:"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/title_card"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/detail_tv_nature"
+                            android:text="Grocery"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/desc_card"/>
+
+                        <TextView
+                            android:id="@+id/detail_tv_loan_type"
+                            android:text="Business Loan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/desc_card"/>
+
+                        <TextView
+                            android:id="@+id/detail_tv_since"
+                            android:text="2017"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/desc_card"/>
+
+                        <TextView
+                            android:id="@+id/detail_tv_channel"
+                            android:text="Kotak Bank Ltd"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            style="@style/desc_card"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardUseCompatPadding="true"
+            android:layout_marginTop="5dp">
+
+            <RelativeLayout
+                android:padding="5dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:text="Comment:"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/title_card"/>
+
+                    <TextView
+                        android:text="Client has sound knowledge and is well educated"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@style/desc_card"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/lead_bottom"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/detail_bt_close"
+            android:text="CLOSE LEAD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+</RelativeLayout>

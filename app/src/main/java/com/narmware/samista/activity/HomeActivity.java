@@ -1,9 +1,10 @@
 package com.narmware.samista.activity;
 
+import android.graphics.Color;
 import android.net.Uri;
-import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -12,18 +13,18 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-
-import android.widget.TextView;
 
 import com.narmware.samista.R;
-import com.narmware.samista.fragment.LeadFragment;
+import com.narmware.samista.fragment.ClosedLeadFragment;
+import com.narmware.samista.fragment.LiveLeadFragment;
 
-public class HomeActivity extends AppCompatActivity implements LeadFragment.OnFragmentInteractionListener {
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
+public class HomeActivity extends AppCompatActivity implements LiveLeadFragment.OnFragmentInteractionListener,ClosedLeadFragment.OnFragmentInteractionListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -47,6 +48,7 @@ public class HomeActivity extends AppCompatActivity implements LeadFragment.OnFr
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -61,9 +63,7 @@ public class HomeActivity extends AppCompatActivity implements LeadFragment.OnFr
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
 
 
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -108,9 +108,21 @@ public class HomeActivity extends AppCompatActivity implements LeadFragment.OnFr
 
         @Override
         public Fragment getItem(int position) {
+
+            Fragment fragment=null;
+
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return LeadFragment.newInstance("New fragment", "");
+
+            if(position==0)
+            {
+                fragment=new LiveLeadFragment();
+            }
+            if(position==1)
+            {
+                fragment=new ClosedLeadFragment();
+            }
+            return fragment;
         }
 
         @Override

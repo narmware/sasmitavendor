@@ -1,11 +1,15 @@
 package com.narmware.samista.pojo;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.io.Serializable;
+
 /**
  * Created by rohitsavant on 22/08/18.
  */
 
-public class Lead {
-    int id;
+public class Lead implements Serializable {
+    String id;
     String trading_name;
     String contact_name;
     String mobile_number;
@@ -19,12 +23,20 @@ public class Lead {
     String business_address;
     String designation;
     String nature_of_business;
-    
-    public int getId() {
+
+    public Lead(String id, String trading_name, String contact_name, String mobile_number, String business_address) {
+        this.id = id;
+        this.trading_name = trading_name;
+        this.contact_name = contact_name;
+        this.mobile_number = mobile_number;
+        this.business_address = business_address;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
