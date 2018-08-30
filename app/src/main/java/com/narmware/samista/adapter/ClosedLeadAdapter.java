@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.narmware.samista.R;
-import com.narmware.samista.activity.CommentActivity;
 import com.narmware.samista.activity.DetailedLeadActivity;
 import com.narmware.samista.fragment.ClosedLeadFragment;
 import com.narmware.samista.fragment.LiveLeadFragment;
@@ -25,12 +23,12 @@ import java.util.ArrayList;
  * Created by rohitsavant on 22/08/18.
  */
 
-public class LeadAdapter extends RecyclerView.Adapter<LeadAdapter.LeadHolder> {
+public class ClosedLeadAdapter extends RecyclerView.Adapter<ClosedLeadAdapter.LeadHolder> {
     private Context mContext;
     private ArrayList<Lead> mData;
     private String status;
 
-    public LeadAdapter(Context mContext, ArrayList<Lead> mData,String status) {
+    public ClosedLeadAdapter(Context mContext, ArrayList<Lead> mData, String status) {
         this.mContext = mContext;
         this.mData = mData;
         this.status=status;
@@ -59,16 +57,13 @@ public class LeadAdapter extends RecyclerView.Adapter<LeadAdapter.LeadHolder> {
     @Override
     public int getItemCount() {
 
-Log.e("lead size",mData.size()+"");
         if (mData.size() == 0)
         {
-            LiveLeadFragment.mEmptyLinear.setVisibility(View.VISIBLE);
+            ClosedLeadFragment.mEmptyLinear.setVisibility(View.VISIBLE);
         }
         else {
-            LiveLeadFragment.mEmptyLinear.setVisibility(View.INVISIBLE);
+            ClosedLeadFragment.mEmptyLinear.setVisibility(View.INVISIBLE);
         }
-
-
             return mData.size();
         }
 

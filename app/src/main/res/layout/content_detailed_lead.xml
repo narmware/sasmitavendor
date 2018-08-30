@@ -245,6 +245,7 @@
                         style="@style/title_card"/>
 
                     <TextView
+                        android:id="@+id/detail_tv_comment"
                         android:text="Client has sound knowledge and is well educated"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -265,10 +266,20 @@
         android:layout_height="wrap_content"
         android:padding="5dp">
 
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <Button
             android:id="@+id/detail_bt_close"
             android:text="CLOSE LEAD"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
     </FrameLayout>
+
 </RelativeLayout>

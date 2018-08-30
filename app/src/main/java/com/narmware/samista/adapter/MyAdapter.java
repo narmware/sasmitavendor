@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.narmware.samista.R;
+import com.narmware.samista.activity.CommentActivity;
 import com.narmware.samista.pojo.Comments;
 import com.narmware.samista.support.Endpoints;
 
@@ -69,6 +70,15 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public int getItemCount() {
+
+        if(mData.size()==0)
+        {
+            //Toast.makeText(mContext,"No data",Toast.LENGTH_SHORT).show();
+            CommentActivity.mEmptyLinear.setVisibility(View.VISIBLE);
+        }
+        else {
+            CommentActivity.mEmptyLinear.setVisibility(View.GONE);
+        }
         return mData.size();
     }
 

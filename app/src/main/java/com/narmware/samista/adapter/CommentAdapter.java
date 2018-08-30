@@ -12,8 +12,10 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.narmware.samista.R;
+import com.narmware.samista.activity.CommentActivity;
 import com.narmware.samista.activity.DetailedLeadActivity;
 import com.narmware.samista.pojo.Comments;
 import com.narmware.samista.pojo.Lead;
@@ -52,7 +54,17 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.LeadHold
     }
 
     @Override
-    public int getItemCount() {
+    public int getItemCount()
+    {
+
+        if(mData.size()==0)
+        {
+            //Toast.makeText(mContext,"No data",Toast.LENGTH_SHORT).show();
+            CommentActivity.mEmptyLinear.setVisibility(View.VISIBLE);
+        }
+        else {
+            CommentActivity.mEmptyLinear.setVisibility(View.INVISIBLE);
+        }
         return mData.size();
     }
 

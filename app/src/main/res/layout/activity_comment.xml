@@ -44,4 +44,14 @@
             android:src="@android:drawable/ic_menu_send"
             android:id="@+id/sendButton"/>
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/empty_linear"
+        android:visibility="invisible"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <include layout="@layout/empty_layout"
+        ></include>
+    </LinearLayout>
 </RelativeLayout>

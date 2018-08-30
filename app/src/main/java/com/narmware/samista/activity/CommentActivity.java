@@ -17,6 +17,9 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -50,6 +53,7 @@ public class CommentActivity extends AppCompatActivity {
     @BindView(R.id.recycler_comment) RecyclerView mRecyclerComment;
     @BindView(R.id.sendButton) ImageButton mImgBtnSend;
     @BindView(R.id.edtMessageArea) EditText mEdtComment;
+    @BindView(R.id.chat_area) LinearLayout mLinearChatArea;
 
     ArrayList<Comments> comments;
     MyAdapter commentAdapter;
@@ -57,7 +61,13 @@ public class CommentActivity extends AppCompatActivity {
     RequestQueue mVolleyRequest;
     Dialog mNoConnectionDialog;
     String comment;
-    String lead_id;
+    String lead_id,status;
+
+    //empty data layout
+    public static LinearLayout mEmptyLinear;
+    @BindView(R.id.txt_no_data) TextView mTxtNoData;
+    @BindView(R.id.img_no_data) ImageView mImgNoData;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +79,7 @@ public class CommentActivity extends AppCompatActivity {
 
         Intent intent=getIntent();
         lead_id=intent.getStringExtra(Endpoints.LEAD_ID);
+        status=intent.getStringExtra(Endpoints.STATUS);
 
         init();
     }
@@ -76,6 +87,19 @@ public class CommentActivity extends AppCompatActivity {
     private void init() {
         mVolleyRequest = Volley.newRequestQueue(CommentActivity.this);
         mNoConnectionDialog = new Dialog(CommentActivity.this, android.R.style.Theme_Light_NoTitleBar_Fullscreen);
+
+        mEmptyLinear=findViewById(R.id.empty_linear);
+        mTxtNoData.setText("No comments yet");
+        mImgNoData.setImageResource(R.drawable.ic_chat_grey);
+
+        if(status.equals(Endpoints.OPEN))
+        {
+            mLinearChatArea.setVisibility(View.VISIBLE);
+        }
+        if(status.equals(Endpoints.CLOSEDIN)|| status.equals(Endpoints.CLOSEDOUT))
+        {
+            mLinearChatArea.setVisibility(View.GONE);
+        }
         setCommentAdapter(new LinearLayoutManager(CommentActivity.this));
         GetComments();
 
@@ -84,12 +108,13 @@ public class CommentActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 comment=mEdtComment.getText().toString().trim();
-                if(comment!=null) {
+                if(!comment.equals("")) {
                     AddComment();
                     mEdtComment.setText("");
                 }
             }
         });
+
     }
 
     public void setCommentAdapter(LinearLayoutManager mLayoutManager) {

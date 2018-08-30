@@ -58,6 +58,7 @@ public class DetailedLeadActivity extends AppCompatActivity {
     @BindView(R.id.detail_tv_since) TextView mTxtSince;
     @BindView(R.id.detail_tv_channel) TextView mTxtChannel;
     @BindView(R.id.detail_bt_close) Button mBtnCloseLead;
+    @BindView(R.id.detail_tv_comment) TextView mTxtComment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +108,7 @@ public class DetailedLeadActivity extends AppCompatActivity {
         if (id == R.id.action_chat) {
             Intent intent=new Intent(DetailedLeadActivity.this,CommentActivity.class);
             intent.putExtra(Endpoints.LEAD_ID,leadItem.getId());
+            intent.putExtra(Endpoints.STATUS,leadItem.getStatus());
             startActivity(intent);
             return true;
         }
@@ -148,11 +150,23 @@ public class DetailedLeadActivity extends AppCompatActivity {
             mTxtLoanType.setText(leadItem.getLoan_type());
             mTxtSince.setText(leadItem.getDoing_business_since());
             mTxtChannel.setText(leadItem.getChannel_partner());
+            mTxtComment.setText(leadItem.getComment());
+
+            if(leadItem.getStatus().equals(Endpoints.OPEN))
+            {
+                mBtnCloseLead.setVisibility(View.VISIBLE);
+            }
+            if(leadItem.getStatus().equals(Endpoints.CLOSEDIN)|| leadItem.getStatus().equals(Endpoints.CLOSEDOUT))
+            {
+                mBtnCloseLead.setVisibility(View.GONE);
+            }
 
             mBtnCloseLead.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    Intent intent=new Intent(DetailedLeadActivity.this,CameraActivity.class);
+                    intent.putExtra(Endpoints.LEAD_ID,leadItem.getId());
+                    startActivity(intent);
                 }
             });
         }

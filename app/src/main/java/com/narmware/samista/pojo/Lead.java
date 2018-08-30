@@ -23,13 +23,14 @@ public class Lead implements Serializable {
     String business_address;
     String designation;
     String nature_of_business;
+    String status;
 
-    public Lead(String id, String trading_name, String contact_name, String mobile_number, String business_address) {
-        this.id = id;
-        this.trading_name = trading_name;
-        this.contact_name = contact_name;
-        this.mobile_number = mobile_number;
-        this.business_address = business_address;
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getId() {

@@ -25,7 +25,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -80,10 +82,16 @@ public class LiveLeadFragment extends Fragment {
     @BindView(R.id.recycler_lead) protected RecyclerView mRecyclerLead;
     ArrayList<Lead> leads;
     LeadAdapter leadAdapter;
-    CoordinatorLayout mFrameRoot;
     Dialog mNoConnectionDialog;
     RequestQueue mVolleyRequest;
     View view;
+
+    //empty data layout
+    public static LinearLayout mEmptyLinear;
+    @BindView(R.id.txt_no_data)
+    TextView mTxtNoData;
+    @BindView(R.id.img_no_data)
+    ImageView mImgNoData;
 
     public LiveLeadFragment() {
         // Required empty public constructor
@@ -132,15 +140,18 @@ public class LiveLeadFragment extends Fragment {
         mVolleyRequest = Volley.newRequestQueue(getContext());
         mNoConnectionDialog = new Dialog(getContext(), android.R.style.Theme_Light_NoTitleBar_Fullscreen);
 
+        mEmptyLinear=view.findViewById(R.id.empty_linear);
+        mTxtNoData.setText("No active leads yet");
+        mImgNoData.setImageResource(R.drawable.ic_working_team);
+
         GetLiveLeads();
-        mFrameRoot=view.findViewById(R.id.root_frame);
     }
 
     public void setLeadRecycler(RecyclerView.LayoutManager mLayoutManager){
         leads=new ArrayList<>();
 
         //leads.add(new Lead("1234","Trading name","Vrushali varne","8928224217","Pune,Maharashtra"));
-        leadAdapter = new LeadAdapter(getContext(),leads);
+        leadAdapter = new LeadAdapter(getContext(),leads,Endpoints.OPEN);
         mRecyclerLead.setLayoutManager(mLayoutManager);
         mRecyclerLead.setItemAnimator(new DefaultItemAnimator());
         mRecyclerLead.setAdapter(leadAdapter);
@@ -209,6 +220,7 @@ public class LiveLeadFragment extends Fragment {
                         try
                         {
 
+                            Log.e("Open json",response.toString());
                             Gson gson=new Gson();
                             LeadResponse leadResponse=gson.fromJson(response.toString(),LeadResponse.class);
                             Lead[] lead=leadResponse.getData();

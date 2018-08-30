@@ -11,6 +11,7 @@ public class Endpoints {
     public static final String GET_CLOSED_LEADS_URL = BASE_URL + "lead_close.php";
     public static final String GET_COMMENTS = BASE_URL + "get_comment.php";
     public static final String ADD_COMMENTS = BASE_URL + "add_comment.php";
+    public static final String SEND_SELFIE = BASE_URL + "img_upload.php";
 
     //Variables
     public static final String LOGIN_USERNAME = "username";
@@ -22,4 +23,11 @@ public class Endpoints {
 
     public static final String LEAD_ID = "lead_id";
     public static final String COMMENT = "comments";
+    public static final String STATUS = "status";
+
+    public static final String CLOSED_LEAD_IMG= "image";
+    public static final String CLOSEDIN= "CLOSEIN";
+    public static final String CLOSEDOUT= "CLOSEOUT";
+    public static final String OPEN = "LEAD";
+
 }

@@ -15,6 +15,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -25,6 +28,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.narmware.samista.MyApplication;
 import com.narmware.samista.R;
+import com.narmware.samista.adapter.ClosedLeadAdapter;
 import com.narmware.samista.adapter.LeadAdapter;
 import com.narmware.samista.pojo.Lead;
 import com.narmware.samista.pojo.LeadResponse;
@@ -62,10 +66,17 @@ public class ClosedLeadFragment extends Fragment {
 
     @BindView(R.id.recycler_lead) protected RecyclerView mRecyclerLead;
     ArrayList<Lead> leads;
-    LeadAdapter leadAdapter;
+    ClosedLeadAdapter leadAdapter;
     Dialog mNoConnectionDialog;
     RequestQueue mVolleyRequest;
     View view;
+
+    //empty data layout
+    public static LinearLayout mEmptyLinear;
+    @BindView(R.id.txt_no_data)
+    TextView mTxtNoData;
+    @BindView(R.id.img_no_data)
+    ImageView mImgNoData;
 
     public ClosedLeadFragment() {
         // Required empty public constructor
@@ -109,19 +120,24 @@ public class ClosedLeadFragment extends Fragment {
     }
 
     private void init(View view) {
+        ButterKnife.bind(this,view);
         mVolleyRequest = Volley.newRequestQueue(getContext());
         mNoConnectionDialog = new Dialog(getContext(), android.R.style.Theme_Light_NoTitleBar_Fullscreen);
 
-        ButterKnife.bind(this,view);
+        mEmptyLinear=view.findViewById(R.id.empty_linear);
+        mTxtNoData.setText("No closed leads yet");
+        mImgNoData.setImageResource(R.drawable.ic_working_team);
+
         setLeadRecycler(new LinearLayoutManager(getContext()));
         GetClosedLeads();
+
     }
 
     public void setLeadRecycler(RecyclerView.LayoutManager mLayoutManager){
         leads=new ArrayList<>();
 
         //leads.add(new Lead("4567","Trading name","Rohit Savant","1234567890","Pune,Maharashtra"));
-        leadAdapter = new LeadAdapter(getContext(),leads);
+        leadAdapter = new ClosedLeadAdapter(getContext(),leads,Endpoints.CLOSEDIN);
         mRecyclerLead.setLayoutManager(mLayoutManager);
         mRecyclerLead.setItemAnimator(new DefaultItemAnimator());
         mRecyclerLead.setAdapter(leadAdapter);
