@@ -25,16 +25,34 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             <TextView
                 android:id="@+id/txt_name"
+                android:textColor="@color/colorAccent"
                 android:gravity="right"
                 android:text="rohit savant"
                 android:padding="2dp"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/txt_designation"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:gravity="right"
+                    android:text="rohit savant"
+                    android:padding="2dp"
+                    android:textSize="12sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
             <TextView
                 android:id="@+id/txt_comment"
+                android:textColor="@color/grey_900"
                 android:paddingTop="8dp"
                 android:paddingRight="10dp"
                 android:paddingBottom="8dp"
@@ -44,6 +62,8 @@
 
             <TextView
                 android:id="@+id/txt_date"
+                android:textColor="@color/grey_400"
+                android:textStyle="italic"
                 android:gravity="right"
                 android:text="rohit savant"
                 android:padding="2dp"

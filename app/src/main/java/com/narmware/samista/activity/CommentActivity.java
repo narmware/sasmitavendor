@@ -11,6 +11,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SnapHelper;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -61,7 +62,7 @@ public class CommentActivity extends AppCompatActivity {
     RequestQueue mVolleyRequest;
     Dialog mNoConnectionDialog;
     String comment;
-    String lead_id,status;
+    String lead_id,status,title;
 
     //empty data layout
     public static LinearLayout mEmptyLinear;
@@ -73,16 +74,27 @@ public class CommentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comment);
-        getSupportActionBar().hide();
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         ButterKnife.bind(this);
 
         Intent intent=getIntent();
         lead_id=intent.getStringExtra(Endpoints.LEAD_ID);
         status=intent.getStringExtra(Endpoints.STATUS);
-
+        title=intent.getStringExtra(Endpoints.TITLE);
+        getSupportActionBar().setTitle(title);
         init();
     }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
+
 
     private void init() {
         mVolleyRequest = Volley.newRequestQueue(CommentActivity.this);

@@ -27,7 +27,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     class ViewHolder0 extends RecyclerView.ViewHolder {
 
-        TextView mTxtComment,mTxtDate,mTxtName;
+        TextView mTxtComment,mTxtDate,mTxtName,mTxtDesignation;
 
 
         public ViewHolder0(View itemView) {
@@ -35,18 +35,20 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             mTxtComment=itemView.findViewById(R.id.txt_comment);
             mTxtName=itemView.findViewById(R.id.txt_name);
             mTxtDate=itemView.findViewById(R.id.txt_date);
+            mTxtDesignation=itemView.findViewById(R.id.txt_designation);
         }
     }
 
     class ViewHolder2 extends RecyclerView.ViewHolder {
 
-        TextView mTxtComment,mTxtDate,mTxtName;
+        TextView mTxtComment,mTxtDate,mTxtName,mTxtDesignation;
 
         public ViewHolder2(View itemView) {
             super(itemView);
             mTxtComment=itemView.findViewById(R.id.txt_comment);
             mTxtName=itemView.findViewById(R.id.txt_name);
             mTxtDate=itemView.findViewById(R.id.txt_date);
+            mTxtDesignation=itemView.findViewById(R.id.txt_designation);
         }
     }
 
@@ -103,6 +105,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 viewHolder0.mTxtComment.setText(mData.get(position).getComment());
                 viewHolder0.mTxtName.setText(mData.get(position).getName());
                 viewHolder0.mTxtDate.setText(mData.get(position).getDate_time());
+                viewHolder0.mTxtDesignation.setText(" ("+mData.get(position).getFlag().toLowerCase()+")");
 
                 break;
 
@@ -111,6 +114,7 @@ public class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
                 viewHolder2.mTxtComment.setText(mData.get(position).getComment());
                 viewHolder2.mTxtName.setText(mData.get(position).getName());
                 viewHolder2.mTxtDate.setText(mData.get(position).getDate_time());
+                viewHolder2.mTxtDesignation.setText(" ("+mData.get(position).getFlag().toLowerCase()+")");
 
                 break;
         }

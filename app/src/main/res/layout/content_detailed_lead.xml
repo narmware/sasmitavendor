@@ -239,13 +239,13 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:text="Comment:"
+                        android:text="Remark:"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/title_card"/>
 
                     <TextView
-                        android:id="@+id/detail_tv_comment"
+                        android:id="@+id/detail_tv_remark"
                         android:text="Client has sound knowledge and is well educated"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -259,7 +259,7 @@
 
     </ScrollView>
 
-    <FrameLayout
+    <LinearLayout
         android:id="@+id/lead_bottom"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
@@ -269,7 +269,7 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
         <Button
             android:id="@+id/detail_bt_close"
             android:text="CLOSE LEAD"
@@ -277,9 +277,12 @@
             android:layout_height="wrap_content" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:text="Lead will be closed along with selfie"
+                android:textColor="@color/colorPrimaryDark"
+                android:gravity="center"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
-    </FrameLayout>
+    </LinearLayout>
 
 </RelativeLayout>

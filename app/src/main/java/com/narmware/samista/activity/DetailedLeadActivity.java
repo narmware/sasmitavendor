@@ -21,6 +21,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,7 +59,8 @@ public class DetailedLeadActivity extends AppCompatActivity {
     @BindView(R.id.detail_tv_since) TextView mTxtSince;
     @BindView(R.id.detail_tv_channel) TextView mTxtChannel;
     @BindView(R.id.detail_bt_close) Button mBtnCloseLead;
-    @BindView(R.id.detail_tv_comment) TextView mTxtComment;
+    @BindView(R.id.detail_tv_remark) TextView mTxtRemark;
+    @BindView(R.id.lead_bottom) LinearLayout mLeadBottom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +70,7 @@ public class DetailedLeadActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Lead Details");
 
         mRootView=findViewById(R.id.main_content);
 
@@ -109,6 +112,7 @@ public class DetailedLeadActivity extends AppCompatActivity {
             Intent intent=new Intent(DetailedLeadActivity.this,CommentActivity.class);
             intent.putExtra(Endpoints.LEAD_ID,leadItem.getId());
             intent.putExtra(Endpoints.STATUS,leadItem.getStatus());
+            intent.putExtra(Endpoints.TITLE,leadItem.getTrading_name());
             startActivity(intent);
             return true;
         }
@@ -150,15 +154,15 @@ public class DetailedLeadActivity extends AppCompatActivity {
             mTxtLoanType.setText(leadItem.getLoan_type());
             mTxtSince.setText(leadItem.getDoing_business_since());
             mTxtChannel.setText(leadItem.getChannel_partner());
-            mTxtComment.setText(leadItem.getComment());
+            mTxtRemark.setText(leadItem.getRemark());
 
             if(leadItem.getStatus().equals(Endpoints.OPEN))
             {
-                mBtnCloseLead.setVisibility(View.VISIBLE);
+                mLeadBottom.setVisibility(View.VISIBLE);
             }
             if(leadItem.getStatus().equals(Endpoints.CLOSEDIN)|| leadItem.getStatus().equals(Endpoints.CLOSEDOUT))
             {
-                mBtnCloseLead.setVisibility(View.GONE);
+                mLeadBottom.setVisibility(View.GONE);
             }
 
             mBtnCloseLead.setOnClickListener(new View.OnClickListener() {
