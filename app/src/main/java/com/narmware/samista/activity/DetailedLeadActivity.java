@@ -82,7 +82,8 @@ public class DetailedLeadActivity extends AppCompatActivity {
         statusCheck();
 
         if (isCallAllowed()) {
-            if (ContextCompat.checkSelfPermission(DetailedLeadActivity.this, "android.permission.ACCESS_FINE_LOCATION") != 0) {
+
+            if (ContextCompat.checkSelfPermission(DetailedLeadActivity.this, String.valueOf(new String[]{"android.permission.ACCESS_FINE_LOCATION","android.permission.CAMERA","android.permission.WRITE_EXTERNAL_STORAGE"})) != 0) {
 
             } else {
 
@@ -128,10 +129,10 @@ public class DetailedLeadActivity extends AppCompatActivity {
     }
 
     private void requestCallPermission() {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(DetailedLeadActivity.this, String.valueOf(new String[]{"android.permission.ACCESS_FINE_LOCATION","android.permission.ACCESS_COARSE_LOCATION"}))) {
-            ActivityCompat.requestPermissions(DetailedLeadActivity.this, new String[]{"android.permission.ACCESS_FINE_LOCATION","android.permission.ACCESS_COARSE_LOCATION"}, this.STORAGE_PERMISSION_CODE);
+        if (ActivityCompat.shouldShowRequestPermissionRationale(DetailedLeadActivity.this, String.valueOf(new String[]{"android.permission.ACCESS_FINE_LOCATION","android.permission.ACCESS_COARSE_LOCATION","android.permission.CAMERA","android.permission.WRITE_EXTERNAL_STORAGE"}))) {
+            ActivityCompat.requestPermissions(DetailedLeadActivity.this, new String[]{"android.permission.ACCESS_FINE_LOCATION","android.permission.ACCESS_COARSE_LOCATION","android.permission.CAMERA","android.permission.WRITE_EXTERNAL_STORAGE"}, this.STORAGE_PERMISSION_CODE);
         } else {
-            ActivityCompat.requestPermissions(DetailedLeadActivity.this, new String[]{"android.permission.ACCESS_FINE_LOCATION","android.permission.ACCESS_COARSE_LOCATION"}, this.STORAGE_PERMISSION_CODE);
+            ActivityCompat.requestPermissions(DetailedLeadActivity.this, new String[]{"android.permission.ACCESS_FINE_LOCATION","android.permission.ACCESS_COARSE_LOCATION","android.permission.CAMERA","android.permission.WRITE_EXTERNAL_STORAGE"}, this.STORAGE_PERMISSION_CODE);
         }
     }
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {

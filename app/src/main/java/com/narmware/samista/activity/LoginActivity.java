@@ -136,7 +136,8 @@ public class LoginActivity extends AppCompatActivity {
         String url= SupportFunctions.appendParam(Endpoints.LOGIN_URL,param);
         final ProgressDialog dialog = new ProgressDialog(this);
         dialog.setCancelable(false);
-        dialog.setTitle("Validating credentials");
+        dialog.setTitle("Please wait");
+        dialog.setMessage("Validating credentials...");
         if(!dialog.isShowing()) dialog.show();
 
         JsonObjectRequest obreq = new JsonObjectRequest(Request.Method.GET,url,null,

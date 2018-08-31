@@ -193,7 +193,8 @@ public class ClosedLeadFragment extends Fragment {
         String url= SupportFunctions.appendParam(Endpoints.GET_CLOSED_LEADS_URL,param);
         final ProgressDialog dialog = new ProgressDialog(getContext());
         dialog.setCancelable(false);
-        dialog.setTitle("Validating credentials");
+        dialog.setMessage("Loading leads...");
+        dialog.setTitle("Please wait");
         if(!dialog.isShowing()) dialog.show();
 
         JsonObjectRequest obreq = new JsonObjectRequest(Request.Method.GET,url,null,
