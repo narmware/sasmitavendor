@@ -2,12 +2,14 @@ package com.narmware.samista.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.narmware.samista.R;
@@ -70,6 +72,7 @@ public class ClosedLeadAdapter extends RecyclerView.Adapter<ClosedLeadAdapter.Le
         class LeadHolder extends RecyclerView.ViewHolder {
             TextView leadId, tradingName, contactName, contactNumber, address;
             Button mBtnMore;
+            ImageButton mImgBtnCall;
 
             Lead mItem;
 
@@ -81,6 +84,7 @@ public class ClosedLeadAdapter extends RecyclerView.Adapter<ClosedLeadAdapter.Le
                 contactNumber = itemView.findViewById(R.id.contact_number);
                 address = itemView.findViewById(R.id.address);
                 mBtnMore = itemView.findViewById(R.id.lead_bt_more);
+                mImgBtnCall = itemView.findViewById(R.id.lead_bt_call);
 
                 mBtnMore.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -92,6 +96,15 @@ public class ClosedLeadAdapter extends RecyclerView.Adapter<ClosedLeadAdapter.Le
                 });
 
 
+
+                mImgBtnCall.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String phone = mItem.getMobile_number();
+                        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phone, null));
+                        mContext.startActivity(intent);
+                    }
+                });
             }
         }
     }

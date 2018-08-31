@@ -12,6 +12,8 @@ public class Endpoints {
     public static final String GET_COMMENTS = BASE_URL + "get_comment.php";
     public static final String ADD_COMMENTS = BASE_URL + "add_comment.php";
     public static final String CONFIRM_LEAD = BASE_URL + "confirm_lead.php";
+    public static final String CHECK_USER_STATUS = BASE_URL + "check_status.php";
+    public static final String LOGOUT_URL = BASE_URL + "convertor_logout.php";
 
     //Variables
     public static final String LOGIN_USERNAME = "username";
@@ -32,5 +34,8 @@ public class Endpoints {
     public static final String CLOSEDIN= "CLOSEIN";
     public static final String CLOSEDOUT= "CLOSEOUT";
     public static final String OPEN = "LEAD";
+
+    public static final String ACTIVE= "1";
+    public static final String DEACTIVE= "0";
 
 }

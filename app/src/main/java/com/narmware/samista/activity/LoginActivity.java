@@ -152,7 +152,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             Gson gson = new Gson();
                             Login2 data = gson.fromJson(response.toString(), Login2.class);
-                            Log.e("Login Json_string",response.toString());
+                            //Log.e("Login Json_string",response.toString());
                                 switch (Integer.parseInt(data.getResponse())) {
                                     case Constants.LOGIN_SUCCESS:
                                         SharedPreferencesHelper.setIsLogin(true,LoginActivity.this);
@@ -164,10 +164,11 @@ public class LoginActivity extends AppCompatActivity {
                                         break;
 
                                     case Constants.LOGIN_ACCOUNT_NOT_VERIFIED:
+                                        MyApplication.mt("Deactivate", LoginActivity.this);
                                         break;
 
                                     case Constants.LOGIN_INVALID_CREDENTIALS:
-                                        MyApplication.mt("Invalid credentials", LoginActivity.this);
+                                        MyApplication.mt("Invalid credentials or Invalid user type", LoginActivity.this);
                                         break;
                                 }
 

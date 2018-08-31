@@ -206,7 +206,7 @@ public class ClosedLeadFragment extends Fragment {
 
                         try
                         {
-                            Log.e("Closed json",response.toString());
+                            //Log.e("Closed json",response.toString());
                             Gson gson=new Gson();
                             LeadResponse leadResponse=gson.fromJson(response.toString(),LeadResponse.class);
                             Lead[] lead=leadResponse.getData();

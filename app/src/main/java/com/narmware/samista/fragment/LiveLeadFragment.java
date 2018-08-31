@@ -220,7 +220,7 @@ public class LiveLeadFragment extends Fragment {
                         try
                         {
 
-                            Log.e("Open json",response.toString());
+                            //Log.e("Open json",response.toString());
                             Gson gson=new Gson();
                             LeadResponse leadResponse=gson.fromJson(response.toString(),LeadResponse.class);
                             Lead[] lead=leadResponse.getData();
