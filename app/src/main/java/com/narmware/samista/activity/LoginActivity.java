@@ -164,7 +164,7 @@ public class LoginActivity extends AppCompatActivity {
                                         break;
 
                                     case Constants.LOGIN_ACCOUNT_NOT_VERIFIED:
-                                        MyApplication.mt("Deactivate", LoginActivity.this);
+                                        MyApplication.mt("Your account has been deactivated", LoginActivity.this);
                                         break;
 
                                     case Constants.LOGIN_INVALID_CREDENTIALS:
